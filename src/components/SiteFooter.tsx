@@ -6,7 +6,7 @@ import {
   Send as SendIcon } from
 'lucide-react';
 const footerLinks = {
-  Explore: ['About GBS', 'Our projects', 'Programs', 'Research'],
+  Explore: ['About GBS', 'Our projects', 'Programs', 'Research', 'Our Group'],
   Connect: ['Partner with us', 'Become a member', 'News & events', 'Contact']
 };
 export function SiteFooter() {

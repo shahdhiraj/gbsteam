@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import {
   ArrowUpRight as ArrowUpRightIcon,
   Menu as MenuIcon,
@@ -33,8 +34,17 @@ const navigationLinks = [
   href: '#research'
 },
 {
+  label: 'Team Member',
+  href: '#team-member'
+},
+{
   label: 'Connect',
   href: '#connect'
+},
+{
+  label: 'Our Group',
+  href: '#our-group',
+  isRoute: false
 }];
 
 export function Navigation({ theme, onThemeToggle }: NavigationProps) {
@@ -56,6 +66,15 @@ export function Navigation({ theme, onThemeToggle }: NavigationProps) {
 
         <div className="hidden items-center gap-6 xl:gap-8 lg:flex">
           {navigationLinks.map((link) =>
+          link.isRoute ? (
+          <Link
+            key={link.href}
+            to={link.href}
+            className="rounded-md text-[13px] font-medium text-brand-300 ring-1 ring-brand-400/30 px-3 py-1 transition-colors hover:text-white hover:ring-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-400"
+          >
+            {link.label}
+          </Link>
+          ) : (
           <a
             key={link.href}
             className="rounded-md text-[13px] font-medium text-slate-300 transition-colors hover:text-brand-300 focus:outline-none focus:ring-2 focus:ring-brand-400"
@@ -63,6 +82,7 @@ export function Navigation({ theme, onThemeToggle }: NavigationProps) {
             
               {link.label}
             </a>
+          )
           )}
         </div>
 
@@ -162,15 +182,26 @@ export function Navigation({ theme, onThemeToggle }: NavigationProps) {
           
             <div className="grid gap-1">
               {navigationLinks.map((link) =>
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={closeMenu}
-              className="rounded-xl px-4 py-3 text-sm font-medium text-slate-200 hover:bg-white/[0.07] focus:bg-white/[0.07] focus:outline-none">
-              
+              link.isRoute ? (
+              <Link
+                key={link.href}
+                to={link.href}
+                onClick={closeMenu}
+                className="rounded-xl px-4 py-3 text-sm font-semibold text-brand-300 hover:bg-white/[0.07] focus:bg-white/[0.07] focus:outline-none">
+                {link.label}
+              </Link>
+              ) : (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={closeMenu}
+                className="rounded-xl px-4 py-3 text-sm font-medium text-slate-200 hover:bg-white/[0.07] focus:bg-white/[0.07] focus:outline-none">
+                
                   {link.label}
                 </a>
+              )
             )}
+
               <a
               href="#connect"
               onClick={closeMenu}

@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Navigation } from './components/Navigation';
-import { Hero } from './components/Hero';
-import { WhyChooseUs } from './components/WhyChooseUs';
-import { About } from './components/About';
-import { Expertise } from './components/Expertise';
-import { Projects } from './components/Projects';
-import { InnovationPrograms } from './components/InnovationPrograms';
-import { FounderProfile } from './components/FounderProfile';
-import { Connect } from './components/Connect';
+import { Routes, Route } from 'react-router-dom';
+import { HomePage } from './pages/HomePage';
+import { TeamPage } from './pages/TeamPage';
+import { MemberDetailPage } from './pages/MemberDetailPage';
+import { ProjectDetailPage } from './pages/ProjectDetailPage';
 import { SiteFooter } from './components/SiteFooter';
 import { useScreenInit } from './useScreenInit';
 
@@ -42,14 +39,12 @@ export function App() {
       
       <Navigation theme={theme} onThemeToggle={toggleTheme} />
       <main>
-        <Hero />
-        <WhyChooseUs />
-        <About />
-        <Expertise />
-        <Projects />
-        <InnovationPrograms />
-        <FounderProfile />
-        <Connect />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/team" element={<TeamPage />} />
+          <Route path="/team/:id" element={<MemberDetailPage />} />
+          <Route path="/projects/:id" element={<ProjectDetailPage />} />
+        </Routes>
       </main>
       <SiteFooter />
     </div>);
