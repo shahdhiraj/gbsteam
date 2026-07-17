@@ -94,6 +94,8 @@ body {
   color: #161616 !important;
 }
 [data-theme="light"] .bg-\[\#161616\],
+[data-theme="light"] .bg-\[\#161616\]\/50,
+[data-theme="light"] .bg-\[\#161616\]\/75,
 [data-theme="light"] .bg-\[\#0a1627\],
 [data-theme="light"] .bg-\[\#0d1b2e\],
 [data-theme="light"] .bg-\[\#0c1a2d\] {
@@ -107,7 +109,9 @@ body {
 [data-theme="light"] .bg-\[\#0d2345\] {
   background-color: #dcfce7 !important;
 }
+[data-theme="light"] .bg-white\/\[0\.02\],
 [data-theme="light"] .bg-white\/\[0\.025\],
+[data-theme="light"] .bg-white\/\[0\.03\],
 [data-theme="light"] .bg-white\/\[0\.035\],
 [data-theme="light"] .bg-white\/\[0\.04\],
 [data-theme="light"] .bg-white\/\[0\.05\] {

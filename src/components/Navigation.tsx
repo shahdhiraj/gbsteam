@@ -6,44 +6,52 @@ import {
   Menu as MenuIcon,
   Moon as MoonIcon,
   Sun as SunIcon,
-  X as XIcon } from
+  X as XIcon,
+  LogOut,
+  LogIn } from
 'lucide-react';
+import { useAuth } from '../context/AuthContext';
 type NavigationProps = {
   theme: 'light' | 'dark';
   onThemeToggle: () => void;
 };
 const navigationLinks = [
 {
+  label: 'Dashboard',
+  href: '/dashboard',
+  isRoute: true
+},
+{
   label: 'About',
-  href: '#about'
+  href: '/#about'
 },
 {
   label: 'Expertise',
-  href: '#expertise'
+  href: '/#expertise'
 },
 {
   label: 'Projects',
-  href: '#projects'
+  href: '/#projects'
 },
 {
   label: 'Programs',
-  href: '#programs'
+  href: '/#programs'
 },
 {
   label: 'Research',
-  href: '#research'
+  href: '/#research'
 },
 {
   label: 'Team Member',
-  href: '#team-member'
+  href: '/#team-member'
 },
 {
   label: 'Connect',
-  href: '#connect'
+  href: '/#connect'
 },
 {
   label: 'Our Group',
-  href: '#our-group',
+  href: '/#our-group',
   isRoute: false
 }];
 
@@ -51,6 +59,7 @@ export function Navigation({ theme, onThemeToggle }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
   const reduceMotion = useReducedMotion();
   const closeMenu = () => setIsOpen(false);
+  const { isAuthenticated, logout } = useAuth();
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-10">
       <nav
@@ -65,7 +74,9 @@ export function Navigation({ theme, onThemeToggle }: NavigationProps) {
         </a>
 
         <div className="hidden items-center gap-6 xl:gap-8 lg:flex">
-          {navigationLinks.map((link) =>
+          {navigationLinks
+            .filter((link) => link.label !== 'Dashboard' || isAuthenticated)
+            .map((link) =>
           link.isRoute ? (
           <Link
             key={link.href}
@@ -87,8 +98,21 @@ export function Navigation({ theme, onThemeToggle }: NavigationProps) {
         </div>
 
         <div className="flex items-center gap-2">
+          {isAuthenticated ? (
+            <button
+              onClick={logout}
+              className="hidden items-center gap-2 rounded-xl bg-red-600/20 px-4 py-2.5 text-[13px] font-semibold text-red-500 transition hover:bg-red-600/30 focus:outline-none focus:ring-2 focus:ring-brand-400 sm:flex">
+              Logout <LogOut size={15} aria-hidden="true" />
+            </button>
+          ) : (
+            <Link
+              to="/login"
+              className="hidden items-center gap-2 rounded-xl bg-brand-500/20 px-4 py-2.5 text-[13px] font-semibold text-brand-400 transition hover:bg-brand-500/30 focus:outline-none focus:ring-2 focus:ring-brand-400 sm:flex">
+              Login <LogIn size={15} aria-hidden="true" />
+            </Link>
+          )}
           <a
-            href="#connect"
+            href="/#connect"
             className="hidden items-center gap-2 rounded-xl bg-[#086638] px-4 py-2.5 text-[13px] font-semibold text-white transition hover:bg-[#0a7d45] focus:outline-none focus:ring-2 focus:ring-brand-400 focus:ring-offset-2 focus:ring-offset-[#161616] sm:flex">
             
             Join GBS <ArrowUpRightIcon size={15} aria-hidden="true" />
@@ -181,7 +205,9 @@ export function Navigation({ theme, onThemeToggle }: NavigationProps) {
           className="mx-auto mt-2 max-w-[1440px] rounded-2xl border border-white/[0.11] bg-[#0b1728]/95 p-3 shadow-2xl backdrop-blur-xl lg:hidden">
           
             <div className="grid gap-1">
-              {navigationLinks.map((link) =>
+              {navigationLinks
+                .filter((link) => link.label !== 'Dashboard' || isAuthenticated)
+                .map((link) =>
               link.isRoute ? (
               <Link
                 key={link.href}
@@ -202,8 +228,26 @@ export function Navigation({ theme, onThemeToggle }: NavigationProps) {
               )
             )}
 
+              {isAuthenticated ? (
+                <button
+                  onClick={() => {
+                    logout();
+                    closeMenu();
+                  }}
+                  className="mt-1 flex items-center justify-center gap-2 rounded-xl bg-red-600/20 px-4 py-3 text-sm font-semibold text-red-500 focus:outline-none focus:ring-2 focus:ring-brand-400">
+                  Logout <LogOut size={16} aria-hidden="true" />
+                </button>
+              ) : (
+                <Link
+                  to="/login"
+                  onClick={closeMenu}
+                  className="mt-1 flex items-center justify-center gap-2 rounded-xl bg-brand-500/20 px-4 py-3 text-sm font-semibold text-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-400">
+                  Login <LogIn size={16} aria-hidden="true" />
+                </Link>
+              )}
+
               <a
-              href="#connect"
+              href="/#connect"
               onClick={closeMenu}
               className="mt-1 flex items-center justify-center gap-2 rounded-xl bg-[#086638] px-4 py-3 text-sm font-semibold text-white focus:outline-none focus:ring-2 focus:ring-brand-400">
               

@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Navigation } from './components/Navigation';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Outlet } from 'react-router-dom';
 import { HomePage } from './pages/HomePage';
 import { TeamPage } from './pages/TeamPage';
 import { MemberDetailPage } from './pages/MemberDetailPage';
 import { ProjectDetailPage } from './pages/ProjectDetailPage';
+import { DashboardPage } from './pages/DashboardPage';
+import { LoginPage } from './pages/LoginPage';
 import { SiteFooter } from './components/SiteFooter';
+import { AuthProvider } from './context/AuthContext';
+import { ProtectedRoute } from './components/ProtectedRoute';
 import { useScreenInit } from './useScreenInit';
 
 // Hidden for mockup parity
@@ -23,7 +27,19 @@ function getInitialTheme(): Theme {
   'light' :
   'dark';
 }
-export function App() {
+function PublicLayout({ theme, toggleTheme }: { theme: Theme, toggleTheme: () => void }) {
+  return (
+    <>
+      <Navigation theme={theme} onThemeToggle={toggleTheme} />
+      <main>
+        <Outlet />
+      </main>
+      <SiteFooter />
+    </>
+  );
+}
+
+function AppContent() {
   const [theme, setTheme] = useState<Theme>(getInitialTheme);
   useScreenInit();
   useEffect(() => {
@@ -36,17 +52,26 @@ export function App() {
     <div
       className="theme-app min-h-screen w-full overflow-x-hidden bg-[#161616] text-slate-50 selection:bg-brand-400 selection:text-[#161616]"
       data-theme={theme}>
-      
-      <Navigation theme={theme} onThemeToggle={toggleTheme} />
-      <main>
-        <Routes>
+      <Routes>
+        <Route element={<PublicLayout theme={theme} toggleTheme={toggleTheme} />}>
           <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/team" element={<TeamPage />} />
           <Route path="/team/:id" element={<MemberDetailPage />} />
           <Route path="/projects/:id" element={<ProjectDetailPage />} />
-        </Routes>
-      </main>
-      <SiteFooter />
-    </div>);
+        </Route>
+        <Route element={<ProtectedRoute />}>
+          <Route path="/dashboard/*" element={<DashboardPage />} />
+        </Route>
+      </Routes>
+    </div>
+  );
+}
 
+export function App() {
+  return (
+    <AuthProvider>
+      <AppContent />
+    </AuthProvider>
+  );
 }

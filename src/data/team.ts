@@ -1,4 +1,14 @@
-const baseMembers = Array.from({ length: 23 }).map((_, i) => {
+export interface TeamMember {
+  id: number;
+  name: string;
+  role: string;
+  image: string;
+  bio: string;
+  email: string;
+  linkedin?: string;
+}
+
+const baseMembers: TeamMember[] = Array.from({ length: 23 }).map((_, i) => {
   const roles = [
     'Robotics Engineer',
     'AI Researcher',
@@ -17,7 +27,7 @@ const baseMembers = Array.from({ length: 23 }).map((_, i) => {
   };
 });
 
-export const teamMembers = [
+export const teamMembers: TeamMember[] = [
   {
     id: 0,
     name: "Krishna Dev Chaudhary",
