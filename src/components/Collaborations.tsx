@@ -17,7 +17,8 @@ export function Collaborations() {
             Our Collaborations
           </h2>
           <p className="mt-4 text-slate-600 dark:text-slate-400">
-            Proud to partner with leading organizations to drive innovation forward.
+            Proud to partner with leading organizations to drive innovation
+            forward.
           </p>
         </div>
 

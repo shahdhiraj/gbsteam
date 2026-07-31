@@ -7,38 +7,40 @@ import {
   FileText as FileTextIcon,
   GraduationCap as GraduationCapIcon,
   Microscope as MicroscopeIcon,
-  Trophy as TrophyIcon } from
-'lucide-react';
+  Trophy as TrophyIcon,
+} from 'lucide-react';
 const programs = [
-{
-  title: 'Robotics Training',
-  meta: '12 weeks · Foundation',
-  icon: GraduationCapIcon
-},
-{
-  title: 'AI Bootcamp',
-  meta: '8 weeks · Intermediate',
-  icon: MicroscopeIcon
-},
-{
-  title: 'STEM Education',
-  meta: 'Year-round · Schools',
-  icon: BookOpenCheckIcon
-}];
+  {
+    title: 'Robotics Training',
+    meta: '12 weeks · Foundation',
+    icon: GraduationCapIcon,
+  },
+  {
+    title: 'AI Bootcamp',
+    meta: '8 weeks · Intermediate',
+    icon: MicroscopeIcon,
+  },
+  {
+    title: 'STEM Education',
+    meta: 'Year-round · Schools',
+    icon: BookOpenCheckIcon,
+  },
+];
 
 const publications = [
-{
-  code: 'GBS-RP / 024',
-  title: 'Low-cost autonomous navigation for complex terrain',
-  type: 'Research paper',
-  date: '2024'
-},
-{
-  code: 'GBS-IR / 018',
-  title: 'Applied AI: a practical framework for Nepal',
-  type: 'Innovation report',
-  date: '2024'
-}];
+  {
+    code: 'GBS-RP / 024',
+    title: 'Low-cost autonomous navigation for complex terrain',
+    type: 'Research paper',
+    date: '2024',
+  },
+  {
+    code: 'GBS-IR / 018',
+    title: 'Applied AI: a practical framework for Nepal',
+    type: 'Innovation report',
+    date: '2024',
+  },
+];
 
 export function ProgramsResearch() {
   const reduceMotion = useReducedMotion();
@@ -62,25 +64,25 @@ export function ProgramsResearch() {
                   href="#connect"
                   key={program.title}
                   initial={
-                  reduceMotion ?
-                  false :
-                  {
-                    opacity: 0,
-                    x: -14
-                  }
+                    reduceMotion
+                      ? false
+                      : {
+                          opacity: 0,
+                          x: -14,
+                        }
                   }
                   whileInView={{
                     opacity: 1,
-                    x: 0
+                    x: 0,
                   }}
                   viewport={{
-                    once: true
+                    once: true,
                   }}
                   transition={{
-                    delay: index * 0.05
+                    delay: index * 0.05,
                   }}
-                  className="group flex items-center gap-4 rounded-2xl border border-white/[0.1] bg-white/[0.025] p-4 transition hover:border-brand-400/45 hover:bg-brand-400/[0.04] focus:outline-none focus:ring-2 focus:ring-brand-400">
-                  
+                  className="group flex items-center gap-4 rounded-2xl border border-white/[0.1] bg-white/[0.025] p-4 transition hover:border-brand-400/45 hover:bg-brand-400/[0.04] focus:outline-none focus:ring-2 focus:ring-brand-400"
+                >
                   <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-brand-400/[0.08] text-brand-300">
                     <Icon size={20} strokeWidth={1.6} aria-hidden="true" />
                   </span>
@@ -95,24 +97,24 @@ export function ProgramsResearch() {
                   <ArrowUpRightIcon
                     size={18}
                     className="text-slate-500 transition group-hover:text-brand-300"
-                    aria-hidden="true" />
-                  
-                </motion.a>);
-
+                    aria-hidden="true"
+                  />
+                </motion.a>
+              );
             })}
           </div>
           <a
             href="#connect"
-            className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-brand-300 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-brand-400">
-            
+            className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-brand-300 transition hover:text-white focus:outline-none focus:ring-2 focus:ring-brand-400"
+          >
             View all programs <ArrowUpRightIcon size={16} aria-hidden="true" />
           </a>
         </div>
 
         <div
           id="research"
-          className="relative overflow-hidden rounded-[26px] border border-white/[0.11] bg-[#0d1b2e] p-6 sm:p-8">
-          
+          className="relative overflow-hidden rounded-[26px] border border-white/[0.11] bg-[#0d1b2e] p-6 sm:p-8"
+        >
           <div className="absolute right-0 top-0 h-52 w-52 bg-[#086638]/10 blur-3xl" />
           <div className="relative">
             <div className="flex items-start justify-between gap-5">
@@ -127,11 +129,11 @@ export function ProgramsResearch() {
               </span>
             </div>
             <div className="mt-8 divide-y divide-white/[0.1] border-y border-white/[0.1]">
-              {publications.map((publication) =>
-              <article
-                key={publication.code}
-                className="group py-5 first:pt-5">
-                
+              {publications.map((publication) => (
+                <article
+                  key={publication.code}
+                  className="group py-5 first:pt-5"
+                >
                   <div className="flex items-center justify-between gap-4 font-mono text-[10px] uppercase tracking-[.14em] text-brand-300">
                     <span>{publication.code}</span>
                     <span className="text-slate-500">{publication.date}</span>
@@ -144,21 +146,22 @@ export function ProgramsResearch() {
                       {publication.type}
                     </span>
                     <button
-                    type="button"
-                    className="inline-flex items-center gap-2 rounded-lg px-2 py-1.5 text-xs font-semibold text-slate-200 transition hover:text-brand-300 focus:outline-none focus:ring-2 focus:ring-brand-400">
-                    
+                      type="button"
+                      className="inline-flex items-center gap-2 rounded-lg px-2 py-1.5 text-xs font-semibold text-slate-200 transition hover:text-brand-300 focus:outline-none focus:ring-2 focus:ring-brand-400"
+                    >
                       Download <DownloadIcon size={14} aria-hidden="true" />
                     </button>
                   </div>
                 </article>
-              )}
+              ))}
             </div>
             <div className="mt-7 flex items-center gap-3 rounded-xl border border-amber-300/20 bg-amber-300/[0.06] p-4 text-sm text-slate-300">
               <TrophyIcon
                 size={18}
                 className="shrink-0 text-amber-300"
-                aria-hidden="true" />
-              
+                aria-hidden="true"
+              />
+
               <span>
                 <strong className="font-semibold text-white">
                   150+ awards
@@ -169,6 +172,6 @@ export function ProgramsResearch() {
           </div>
         </div>
       </div>
-    </section>);
-
+    </section>
+  );
 }

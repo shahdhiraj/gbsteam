@@ -7,7 +7,7 @@ const timeline = [
   { icon: Cog, text: '100+ Robotics Projects' },
   { icon: Lightbulb, text: 'Research & Innovation' },
   { icon: Cog, text: 'Industry Collaboration' },
-  { icon: GraduationCap, text: 'National Impact' }
+  { icon: GraduationCap, text: 'National Impact' },
 ];
 
 export function WhyChooseUs() {
@@ -16,7 +16,7 @@ export function WhyChooseUs() {
   return (
     <section className="relative px-5 py-4 sm:px-8 lg:px-12 bg-white dark:bg-transparent -mt-8 relative z-20">
       <div className="mx-auto max-w-[1600px]">
-        <motion.div 
+        <motion.div
           initial={reduceMotion ? false : { opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -25,17 +25,23 @@ export function WhyChooseUs() {
           <h3 className="font-display text-[15px] font-bold text-center text-[#161616] dark:text-white mb-6 uppercase tracking-wider">
             WHY CHOOSE GBS TEAM
           </h3>
-          
+
           <div className="relative flex justify-between items-start px-2 sm:px-6">
             {/* Connecting Line */}
             <div className="absolute top-8 left-16 right-16 h-0.5 bg-brand-100 dark:bg-brand-900/50 -z-10 hidden sm:block" />
-            
+
             {timeline.map((item, index) => {
               const Icon = item.icon;
               return (
-                <div key={index} className="flex flex-col items-center gap-3 text-center max-w-[100px]">
+                <div
+                  key={index}
+                  className="flex flex-col items-center gap-3 text-center max-w-[100px]"
+                >
                   <div className="grid h-16 w-16 place-items-center rounded-full bg-white dark:bg-[#161616] border-[2px] border-brand-500 shadow-sm transition-transform hover:scale-110">
-                    <Icon size={26} className="text-brand-600 dark:text-brand-400" />
+                    <Icon
+                      size={26}
+                      className="text-brand-600 dark:text-brand-400"
+                    />
                   </div>
                   <p className="text-xs font-bold text-slate-700 dark:text-slate-300">
                     {item.text}

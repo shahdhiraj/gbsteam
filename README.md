@@ -11,7 +11,6 @@ Welcome to the **GBS Team Portal** repository! This project is a modern, respons
 - **Modern UI:** Built with an emphasis on rich aesthetics and a premium user experience.
 - **Responsive Design:** Fully functional across desktop, tablet, and mobile devices.
 
-
 ## 🛠️ Getting Started
 
 Follow these instructions to set up the project locally.
@@ -60,4 +59,5 @@ Open [http://localhost:5173](http://localhost:5173) in your browser to view the 
 - `npm run preview`: Previews the production build locally.
 
 ---
-*Initially generated based on a Magic Patterns design.*
+
+_Initially generated based on a Magic Patterns design._

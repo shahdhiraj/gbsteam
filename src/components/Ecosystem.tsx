@@ -4,32 +4,34 @@ import {
   ArrowUpRight as ArrowUpRightIcon,
   Building2 as Building2Icon,
   Handshake as HandshakeIcon,
-  Newspaper as NewspaperIcon } from
-'lucide-react';
+  Newspaper as NewspaperIcon,
+} from 'lucide-react';
 const partners = [
-'NEPAL ACADEMY',
-'KATHMANDU UNIVERSITY',
-'NATIONAL INNOVATION',
-'STEM NEPAL',
-'FUTURE LABS',
-'TECH COMMUNITY'];
+  'NEPAL ACADEMY',
+  'KATHMANDU UNIVERSITY',
+  'NATIONAL INNOVATION',
+  'STEM NEPAL',
+  'FUTURE LABS',
+  'TECH COMMUNITY',
+];
 
 const news = [
-{
-  tag: 'Community',
-  date: '06.12.2024',
-  title: 'GBS opens its annual innovation challenge to schools across Nepal.'
-},
-{
-  tag: 'Research',
-  date: '25.11.2024',
-  title: 'A new field robotics initiative for safer emergency response.'
-},
-{
-  tag: 'Education',
-  date: '07.10.2024',
-  title: 'Bringing hands-on AI education into the classroom.'
-}];
+  {
+    tag: 'Community',
+    date: '06.12.2024',
+    title: 'GBS opens its annual innovation challenge to schools across Nepal.',
+  },
+  {
+    tag: 'Research',
+    date: '25.11.2024',
+    title: 'A new field robotics initiative for safer emergency response.',
+  },
+  {
+    tag: 'Education',
+    date: '07.10.2024',
+    title: 'Bringing hands-on AI education into the classroom.',
+  },
+];
 
 export function Ecosystem() {
   const reduceMotion = useReducedMotion();
@@ -50,32 +52,32 @@ export function Ecosystem() {
             </p>
           </div>
           <div className="mt-14 grid grid-cols-2 border-l border-t border-white/[0.1] sm:grid-cols-3">
-            {partners.map((partner, index) =>
-            <motion.div
-              key={partner}
-              initial={
-              reduceMotion ?
-              false :
-              {
-                opacity: 0
-              }
-              }
-              whileInView={{
-                opacity: 1
-              }}
-              viewport={{
-                once: true
-              }}
-              transition={{
-                delay: index * 0.04
-              }}
-              className="group flex min-h-[115px] items-center justify-center border-b border-r border-white/[0.1] p-5 text-center">
-              
+            {partners.map((partner, index) => (
+              <motion.div
+                key={partner}
+                initial={
+                  reduceMotion
+                    ? false
+                    : {
+                        opacity: 0,
+                      }
+                }
+                whileInView={{
+                  opacity: 1,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                transition={{
+                  delay: index * 0.04,
+                }}
+                className="group flex min-h-[115px] items-center justify-center border-b border-r border-white/[0.1] p-5 text-center"
+              >
                 <span className="font-display text-sm font-bold tracking-[.08em] text-slate-400 transition group-hover:text-brand-300">
                   {partner}
                 </span>
               </motion.div>
-            )}
+            ))}
           </div>
           <div className="mt-7 flex flex-col justify-between gap-4 rounded-2xl border border-white/[0.1] bg-white/[0.025] p-5 sm:flex-row sm:items-center">
             <div className="flex items-center gap-3">
@@ -88,8 +90,8 @@ export function Ecosystem() {
             </div>
             <a
               href="#connect"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-brand-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-brand-400">
-              
+              className="inline-flex items-center gap-2 text-sm font-semibold text-brand-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-brand-400"
+            >
               Partner with GBS <ArrowUpRightIcon size={16} aria-hidden="true" />
             </a>
           </div>
@@ -107,44 +109,44 @@ export function Ecosystem() {
             </div>
             <a
               href="#connect"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-brand-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-brand-400">
-              
+              className="inline-flex items-center gap-2 text-sm font-semibold text-brand-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-brand-400"
+            >
               View all stories <ArrowUpRightIcon size={16} aria-hidden="true" />
             </a>
           </div>
           <div className="mt-12 grid gap-4 lg:grid-cols-3">
-            {news.map((article, index) =>
-            <motion.article
-              key={article.title}
-              initial={
-              reduceMotion ?
-              false :
-              {
-                opacity: 0,
-                y: 12
-              }
-              }
-              whileInView={{
-                opacity: 1,
-                y: 0
-              }}
-              viewport={{
-                once: true
-              }}
-              transition={{
-                delay: index * 0.06
-              }}
-              className="group flex min-h-[270px] flex-col justify-between rounded-[22px] border border-white/[0.1] bg-white/[0.025] p-6">
-              
+            {news.map((article, index) => (
+              <motion.article
+                key={article.title}
+                initial={
+                  reduceMotion
+                    ? false
+                    : {
+                        opacity: 0,
+                        y: 12,
+                      }
+                }
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                viewport={{
+                  once: true,
+                }}
+                transition={{
+                  delay: index * 0.06,
+                }}
+                className="group flex min-h-[270px] flex-col justify-between rounded-[22px] border border-white/[0.1] bg-white/[0.025] p-6"
+              >
                 <div className="flex items-center justify-between">
                   <span className="rounded-full border border-brand-400/20 bg-brand-400/[0.05] px-2.5 py-1 font-mono text-[9px] uppercase tracking-[.13em] text-brand-300">
                     {article.tag}
                   </span>
                   <NewspaperIcon
-                  size={18}
-                  className="text-slate-500"
-                  aria-hidden="true" />
-                
+                    size={18}
+                    className="text-slate-500"
+                    aria-hidden="true"
+                  />
                 </div>
                 <div>
                   <p className="font-mono text-[10px] text-slate-500">
@@ -154,15 +156,15 @@ export function Ecosystem() {
                     {article.title}
                   </h3>
                   <a
-                  href="#connect"
-                  className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-slate-300 transition group-hover:text-brand-300 focus:outline-none focus:ring-2 focus:ring-brand-400">
-                  
+                    href="#connect"
+                    className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-slate-300 transition group-hover:text-brand-300 focus:outline-none focus:ring-2 focus:ring-brand-400"
+                  >
                     Read article{' '}
                     <ArrowUpRightIcon size={15} aria-hidden="true" />
                   </a>
                 </div>
               </motion.article>
-            )}
+            ))}
           </div>
         </div>
       </section>
@@ -186,21 +188,21 @@ export function Ecosystem() {
             <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
               <a
                 href="mailto:hello@gbsteam.org"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-white px-5 text-sm font-semibold text-[#161616] transition hover:bg-brand-200 focus:outline-none focus:ring-2 focus:ring-brand-300">
-                
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-white px-5 text-sm font-semibold text-[#161616] transition hover:bg-brand-200 focus:outline-none focus:ring-2 focus:ring-brand-300"
+              >
                 Start a conversation{' '}
                 <ArrowUpRightIcon size={16} aria-hidden="true" />
               </a>
               <a
                 href="#top"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/25 px-5 text-sm font-semibold text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-300">
-                
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/25 px-5 text-sm font-semibold text-white transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-brand-300"
+              >
                 Explore GBS <Building2Icon size={16} aria-hidden="true" />
               </a>
             </div>
           </div>
         </div>
       </section>
-    </>);
-
+    </>
+  );
 }

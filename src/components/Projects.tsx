@@ -8,9 +8,11 @@ export function Projects() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section id="projects" className="relative bg-white dark:bg-transparent px-5 py-12 sm:px-8 lg:px-12">
+    <section
+      id="projects"
+      className="relative bg-white dark:bg-transparent px-5 py-12 sm:px-8 lg:px-12"
+    >
       <div className="mx-auto max-w-[1600px]">
-        
         <div className="mb-8 flex items-center justify-between">
           <div className="flex-1 h-px bg-black/10 dark:bg-white/10" />
           <h2 className="px-6 font-mono text-sm font-bold uppercase tracking-[0.15em] text-[#161616] dark:text-white">
@@ -18,9 +20,15 @@ export function Projects() {
           </h2>
           <div className="flex-1 flex justify-end items-center">
             <div className="h-px w-full bg-black/10 dark:bg-white/10 mr-6" />
-            <a href="#all-projects" className="group flex shrink-0 items-center gap-1.5 text-xs font-bold text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300">
+            <a
+              href="#all-projects"
+              className="group flex shrink-0 items-center gap-1.5 text-xs font-bold text-brand-600 dark:text-brand-400 hover:text-brand-700 dark:hover:text-brand-300"
+            >
               View All Projects
-              <ArrowRightIcon size={14} className="transition-transform group-hover:translate-x-1" />
+              <ArrowRightIcon
+                size={14}
+                className="transition-transform group-hover:translate-x-1"
+              />
             </a>
           </div>
         </div>
@@ -35,18 +43,21 @@ export function Projects() {
               transition={{ duration: 0.4, delay: index * 0.05 }}
               className="group relative flex flex-col overflow-hidden rounded-[1.25rem] bg-white dark:bg-[#111827] border border-black/5 dark:border-white/10 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none transition-all hover:-translate-y-1 hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] dark:hover:border-brand-500/30"
             >
-              <Link to={`/projects/${project.id}`} className="flex flex-col h-full w-full">
+              <Link
+                to={`/projects/${project.id}`}
+                className="flex flex-col h-full w-full"
+              >
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-100 dark:bg-slate-900">
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute top-3 left-3 rounded-lg bg-white/90 dark:bg-brand-500/90 px-2.5 py-1 font-mono text-[9px] font-bold uppercase tracking-wider text-brand-700 dark:text-white shadow-sm backdrop-blur">
                     GBS PROJECTS
                   </div>
                 </div>
-                
+
                 <div className="flex flex-col p-5 border-t border-black/5 dark:border-white/10 bg-white dark:bg-transparent grow">
                   <h3 className="font-display text-[15px] font-bold tracking-wider uppercase text-[#161616] dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
                     {project.title}
@@ -59,7 +70,6 @@ export function Projects() {
             </motion.div>
           ))}
         </div>
-
       </div>
     </section>
   );

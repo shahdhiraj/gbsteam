@@ -3,38 +3,43 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowUpRight as ArrowUpRightIcon } from 'lucide-react';
 
 const companies = [
-  { 
-    id: 'nepal-automation', 
-    name: 'Nepal Automation Pvt Ltd', 
+  {
+    id: 'nepal-automation',
+    name: 'Nepal Automation Pvt Ltd',
     image: '/nepal-automation.jpg',
     color: '#0055a4',
-    url: 'https://gbsteam.com'
+    url: 'https://gbsteam.com',
   },
-  { 
-    id: 'nrrc', 
-    name: 'National Robotics And Research Center', 
+  {
+    id: 'nrrc',
+    name: 'National Robotics And Research Center',
     image: '/nrrc.jpg',
     color: '#000000',
-    url: 'https://gbsteam.com'
+    url: 'https://gbsteam.com',
   },
-  { 
-    id: 'roboaarambh', 
-    name: 'Roboaarambh', 
+  {
+    id: 'roboaarambh',
+    name: 'Roboaarambh',
     image: '/roboaarambh.png',
     color: '#00529b',
-    url: 'https://roboaarambh.com/'
-  }
+    url: 'https://roboaarambh.com/',
+  },
 ];
 
 export function GroupCompaniesPreview() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section id="our-group" className="px-5 py-24 sm:px-8 lg:px-12 bg-white dark:bg-[#0a0f1a]">
+    <section
+      id="our-group"
+      className="px-5 py-24 sm:px-8 lg:px-12 bg-white dark:bg-[#0a0f1a]"
+    >
       <div className="mx-auto max-w-[1280px]">
         <div className="flex flex-col items-center text-center gap-4 mb-8">
           <div>
-            <p className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-brand-500 dark:text-brand-400">Our Network</p>
+            <p className="font-mono text-[11px] font-bold uppercase tracking-[0.2em] text-brand-500 dark:text-brand-400">
+              Our Network
+            </p>
             <h2 className="mt-2 font-display text-2xl font-bold text-brand-700 dark:text-brand-400 sm:text-3xl">
               Group of Companies
             </h2>
@@ -59,21 +64,23 @@ export function GroupCompaniesPreview() {
                     rel="noopener noreferrer"
                     className="group flex flex-col items-center gap-6 text-center w-full"
                   >
-                    <div 
-                      className="flex h-36 w-full place-items-center justify-center rounded-2xl bg-white border border-slate-200 dark:border-slate-700 shadow-sm transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-lg p-6 relative overflow-hidden" 
-                    >
-                      <img 
-                        src={company.image} 
-                        alt={`${company.name} Logo`} 
-                        className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105" 
+                    <div className="flex h-36 w-full place-items-center justify-center rounded-2xl bg-white border border-slate-200 dark:border-slate-700 shadow-sm transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-lg p-6 relative overflow-hidden">
+                      <img
+                        src={company.image}
+                        alt={`${company.name} Logo`}
+                        className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
                         onError={(e) => {
                           e.currentTarget.style.display = 'none';
-                          e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                          e.currentTarget.nextElementSibling?.classList.remove(
+                            'hidden',
+                          );
                         }}
                       />
                       <div className="hidden absolute inset-0 flex flex-col items-center justify-center bg-slate-50 border-2 border-dashed border-slate-300 rounded-2xl text-slate-500 text-[10px] text-center p-2">
                         <span>Image not found</span>
-                        <span className="font-mono mt-1 font-bold">{company.image}</span>
+                        <span className="font-mono mt-1 font-bold">
+                          {company.image}
+                        </span>
                       </div>
                     </div>
                     <h3 className="font-display text-lg lg:text-xl font-bold text-[#161616] dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
@@ -93,7 +100,8 @@ export function GroupCompaniesPreview() {
             rel="noopener noreferrer"
             className="btn-secondary"
           >
-            Explore all companies <ArrowUpRightIcon size={16} aria-hidden="true" />
+            Explore all companies{' '}
+            <ArrowUpRightIcon size={16} aria-hidden="true" />
           </a>
         </div>
       </div>

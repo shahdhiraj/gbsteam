@@ -1,47 +1,52 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { BrainCircuit as BrainCircuitIcon, GraduationCap as GraduationCapIcon } from 'lucide-react';
+import {
+  BrainCircuit as BrainCircuitIcon,
+  GraduationCap as GraduationCapIcon,
+} from 'lucide-react';
 
 const expertise = [
   {
     title: 'UGV',
     image: '/military_robot_1783827943102.png',
-    text: 'Intelligent unmanned ground vehicles for defense, inspection and industry.'
+    text: 'Intelligent unmanned ground vehicles for defense, inspection and industry.',
   },
   {
     title: 'UAV',
     image: '/surveillance_drone_1783827953891.png',
-    text: 'Drone research, autonomous navigation, surveillance and mapping solutions.'
+    text: 'Drone research, autonomous navigation, surveillance and mapping solutions.',
   },
   {
     title: 'ROV',
     image: '/auto_vehicle_1783828024359.png',
-    text: 'Underwater robotic systems for inspection, exploration and research.'
+    text: 'Underwater robotic systems for inspection, exploration and research.',
   },
   {
     title: 'AI & VISION',
     icon: BrainCircuitIcon,
-    text: 'Computer Vision, Machine Learning and Intelligent Automation.'
+    text: 'Computer Vision, Machine Learning and Intelligent Automation.',
   },
   {
     title: 'AUTOMATION',
     image: '/robotic_arm_1783827973112.png',
-    text: 'Industrial automation, PLC, IoT, Embedded systems and smart manufacturing.'
+    text: 'Industrial automation, PLC, IoT, Embedded systems and smart manufacturing.',
   },
   {
     title: 'STEM EDUCATION',
     icon: GraduationCapIcon,
-    text: 'Hands-on robotics education, innovation labs and engineering workshops.'
-  }
+    text: 'Hands-on robotics education, innovation labs and engineering workshops.',
+  },
 ];
 
 export function Expertise() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section id="expertise" className="relative bg-white dark:bg-transparent px-5 py-12 sm:px-8 lg:px-12">
+    <section
+      id="expertise"
+      className="relative bg-white dark:bg-transparent px-5 py-12 sm:px-8 lg:px-12"
+    >
       <div className="mx-auto max-w-[1600px]">
-        
         <div className="mb-8 flex items-center justify-center gap-4">
           <div className="h-px w-12 bg-black/10 dark:bg-white/10" />
           <h2 className="font-mono text-sm font-bold uppercase tracking-[0.15em] text-[#161616] dark:text-white">
@@ -65,9 +70,17 @@ export function Expertise() {
                 >
                   <div className="flex shrink-0 items-center justify-center h-20 w-20 rounded-xl bg-white/50 dark:bg-white/5">
                     {item.image ? (
-                      <img src={item.image} alt={item.title} className="h-full w-full object-contain drop-shadow-md" />
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="h-full w-full object-contain drop-shadow-md"
+                      />
                     ) : Icon ? (
-                      <Icon size={36} className="text-brand-600 dark:text-brand-400" strokeWidth={1.5} />
+                      <Icon
+                        size={36}
+                        className="text-brand-600 dark:text-brand-400"
+                        strokeWidth={1.5}
+                      />
                     ) : null}
                   </div>
                   <div className="flex flex-col items-start text-left">
@@ -83,7 +96,6 @@ export function Expertise() {
             })}
           </motion.div>
         </div>
-
       </div>
     </section>
   );

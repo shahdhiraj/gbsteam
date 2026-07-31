@@ -1,8 +1,5 @@
 export default {
-  content: [
-    './index.html',
-    './src/**/*.{js,ts,jsx,tsx}'
-  ],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -20,8 +17,8 @@ export default {
           900: '#086638', // Base logo color
           950: '#052e16',
           DEFAULT: '#086638',
-        }
-      }
-    }
-  }
-}
+        },
+      },
+    },
+  },
+};

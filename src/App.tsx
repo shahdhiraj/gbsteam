@@ -23,11 +23,17 @@ function getInitialTheme(): Theme {
   if (typeof window === 'undefined') return 'dark';
   const savedTheme = window.localStorage.getItem('gbs-theme');
   if (savedTheme === 'light' || savedTheme === 'dark') return savedTheme;
-  return window.matchMedia('(prefers-color-scheme: light)').matches ?
-  'light' :
-  'dark';
+  return window.matchMedia('(prefers-color-scheme: light)').matches
+    ? 'light'
+    : 'dark';
 }
-function PublicLayout({ theme, toggleTheme }: { theme: Theme, toggleTheme: () => void }) {
+function PublicLayout({
+  theme,
+  toggleTheme,
+}: {
+  theme: Theme;
+  toggleTheme: () => void;
+}) {
   return (
     <>
       <Navigation theme={theme} onThemeToggle={toggleTheme} />
@@ -47,13 +53,16 @@ function AppContent() {
     document.documentElement.dataset.theme = theme;
   }, [theme]);
   const toggleTheme = () =>
-  setTheme((currentTheme) => currentTheme === 'dark' ? 'light' : 'dark');
+    setTheme((currentTheme) => (currentTheme === 'dark' ? 'light' : 'dark'));
   return (
     <div
       className="theme-app min-h-screen w-full overflow-x-hidden bg-[#161616] text-slate-50 selection:bg-brand-400 selection:text-[#161616]"
-      data-theme={theme}>
+      data-theme={theme}
+    >
       <Routes>
-        <Route element={<PublicLayout theme={theme} toggleTheme={toggleTheme} />}>
+        <Route
+          element={<PublicLayout theme={theme} toggleTheme={toggleTheme} />}
+        >
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/team" element={<TeamPage />} />

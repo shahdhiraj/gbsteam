@@ -15,7 +15,7 @@ const baseMembers: TeamMember[] = Array.from({ length: 23 }).map((_, i) => {
     'Software Developer',
     'Hardware Specialist',
     'Project Manager',
-    'Design Engineer'
+    'Design Engineer',
   ];
   return {
     id: i + 1,
@@ -30,11 +30,11 @@ const baseMembers: TeamMember[] = Array.from({ length: 23 }).map((_, i) => {
 export const teamMembers: TeamMember[] = [
   {
     id: 0,
-    name: "Krishna Dev Chaudhary",
-    role: "Robotics and Coding Instructor",
-    image: "https://i.pravatar.cc/150?u=krishna",
+    name: 'Krishna Dev Chaudhary',
+    role: 'Robotics and Coding Instructor',
+    image: 'https://i.pravatar.cc/150?u=krishna',
     bio: "Krishna Dev Chaudhary is a Robotics and Coding Instructor with over two years of dedicated training experience at academic and freelance levels, plus additional teaching exposure gained during eight years with GBS Team, where he occasionally led training and coaching sessions alongside project development work. He currently teaches robotics and coding at Durshikya Education Network, building on his prior role at Neema Academy and a period of independent freelance instruction. Holding a Master's degree in Computer Science alongside hands-on robotics training in sensors, circuits, drive systems, and robot design, Krishna combines technical depth with a genuine passion for STEM education. Known for translating complex robotics and programming concepts into engaging, learner-friendly instruction, he is committed to inspiring students at the school and college level to explore automation, electronics, and problem-solving through robotics.",
-    email: "krishna@gbsteam.com",
+    email: 'krishna@gbsteam.com',
   },
-  ...baseMembers
+  ...baseMembers,
 ];
